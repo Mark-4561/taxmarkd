@@ -37,7 +37,7 @@ def counter(request, _):
     return rsp
 
 
-def ocr(request, _):
+def ocrImg(request, _):
     """
     获取当前计数
 

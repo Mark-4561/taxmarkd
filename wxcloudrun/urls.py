@@ -19,8 +19,8 @@ from django.conf.urls import url
 
 urlpatterns = (
     # 计数器接口
-    url(r'^^api/count(/)?$', views.ocr),
-    url(r'^^api/orc(/)?$', views.orc),
+    url(r'^^api/count(/)?$', views.counter),
+    url(r'^^api/ocrImg(/)?$', views.ocrImg),
 
     # 获取主页
     url(r'(/)?$', views.index),
