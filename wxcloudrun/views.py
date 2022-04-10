@@ -89,7 +89,7 @@ def update_count(request):
                     json_dumps_params={'ensure_ascii': False})
 
 
-def OCR(request, _):
+def orc(request, _):
     rsp = JsonResponse({'code': 0, 'errorMsg': ''}, json_dumps_params={'ensure_ascii': False})
     if request.method == 'GET' or request.method == 'get':
         rsp = get_count()
@@ -97,6 +97,6 @@ def OCR(request, _):
         rsp = update_count(request)
     else:
         rsp = JsonResponse({'code': -1, 'errorMsg': '请求方式错误'},
-                           json_dumps_params={'ensure_ascii': False})
+                            json_dumps_params={'ensure_ascii': False})
     logger.info('response result: {}'.format(rsp.content.decode('utf-8')))
     return rsp

@@ -24,5 +24,5 @@ urlpatterns = (
     # 获取主页
     url(r'(/)?$', views.index),
 
-    url(r'^^api/OCR(/)?$', views.OCR),
+    url(r'^^api/orc(/)?$', views.orc),
 )
