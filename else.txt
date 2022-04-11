@@ -1,7 +1,0 @@
-numpy~=1.22.3
-opencv-python~=4.5.5.64
-pandas~=1.4.2
-Pillow~=9.1.0
-cnocr~=2.1.0
-
-&& pip install install -U cos-python-sdk-v5 -i https://pypi.tuna.tsinghua.edu.cn/simple \
