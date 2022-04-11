@@ -1,16 +1,12 @@
 from datetime import datetime
 
-# import self
 from django.db import models
-
-import os
 
 from qcloud_cos import CosConfig
 from qcloud_cos import CosS3Client
 import sys
 import logging
 
-from PIL import Image
 import cv2 as cv
 import numpy as np
 from cnocr import CnOcr
