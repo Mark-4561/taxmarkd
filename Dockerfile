@@ -11,9 +11,11 @@ RUN apk add ca-certificates
 
 # 选用国内镜像源以提高下载速度
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories \
-&& apk add --update --no-cache python3 py3-pip \
+&& apk add --update --no-cache --virtual build-dependencies \
 && rm -rf /var/cache/apk/* \
-&& apk add build-base
+&& apk add build-base \
+&& apk add jpeg-dev zlib-dev \
+&& apk add freetds-dev
 
 # 拷贝当前项目到/app目录下
 COPY . /app
@@ -38,3 +40,4 @@ EXPOSE 80
 CMD ["python3", "manage.py", "runserver", "0.0.0.0:80"]
 
 
+# python3 py3-pip 
