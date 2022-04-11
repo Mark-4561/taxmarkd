@@ -30,7 +30,6 @@ RUN pip config set global.index-url http://mirrors.cloud.tencent.com/pypi/simple
 && pip install -U cos-python-sdk-v5 \
 && pip install --user -r requirements.txt \
 
-
 # 设定对外端口
 EXPOSE 80
 
