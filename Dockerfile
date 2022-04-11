@@ -10,8 +10,8 @@ RUN apk add tzdata && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && ech
 RUN apk add ca-certificates
 
 # 选用国内镜像源以提高下载速度
-RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories \
-&& apk add --update --no-cache --virtual build-dependencies \
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories 
+RUN apk add --update --no-cache curl jq py3-configobj py3-pip py3-setuptools python3 python3-dev \
 && rm -rf /var/cache/apk/* \
 && apk add build-base \
 && apk add jpeg-dev zlib-dev \
