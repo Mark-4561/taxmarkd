@@ -2,7 +2,7 @@
 # 选择构建用基础镜像（选择原则：在包含所有用到的依赖前提下尽可能提及小）。如需更换，请到[dockerhub官方仓库](https://hub.docker.com/_/python?tab=tags)自行选择后替换。
 FROM ubuntu:trusty
 
-RUN apk add ca-certificates
+#RUN apk add ca-certificates
 
 # APT 自动安装 Python 相关的依赖包，如需其他依赖包在此添加
 
@@ -52,7 +52,7 @@ CMD ["python3", "manage.py", "runserver", "0.0.0.0:80"]
 # RUN apk add tzdata && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo Asia/Shanghai > /etc/timezone
 
 # 使用 HTTPS 协议访问容器云调用证书安装
-RUN apk add ca-certificates
+#RUN apk add ca-certificates
 
 # 选用国内镜像源以提高下载速度
 #RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.tencent.com/g' /etc/apk/repositories \
