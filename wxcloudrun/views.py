@@ -39,7 +39,6 @@ def counter(request, _):
 
 
 def ocrImg(request, _):
-
     rsp = JsonResponse({'code': 0, 'errorMsg': ''}, json_dumps_params={'ensure_ascii': False})
     if request.method == 'GET' or request.method == 'get':
         rsp = get_ocr()
@@ -139,7 +138,7 @@ def update_ocr(request):
         data = OCR.start(body['file'])
         return JsonResponse({'code': 0, "data": data},
                             json_dumps_params={'ensure_ascii': False})
-    
+
     else:
         return JsonResponse({'code': -1, 'errorMsg': 'action参数错误'},
                             json_dumps_params={'ensure_ascii': False})
