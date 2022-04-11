@@ -33,10 +33,10 @@ WORKDIR /app
 # pip install scipy 等数学包失败，可使用 apk add py3-scipy 进行， 参考安装 https://pkgs.alpinelinux.org/packages?name=py3-scipy&branch=v3.1
 #RUN pip config set global.index-url https://mirrors.cloud.tencent.com/pypi/simple
 #RUN pip config set global.trusted-host mirrors.cloud.tencent.com/pypi/simple
-RUN pip install --upgrade pip 
-RUN pip install -U wheel 
+RUN pip install --upgrade pip -i https://mirrors.cloud.tencent.com/pypi/simple
+RUN pip install -U wheel -i https://mirrors.cloud.tencent.com/pypi/simple
 RUN pip install --user -r requirements.txt
-RUN pip install install -U cos-python-sdk-v5
+RUN pip install install -U cos-python-sdk-v5 -i https://mirrors.cloud.tencent.com/pypi/simple
 
 # 设定对外端口
 EXPOSE 80
