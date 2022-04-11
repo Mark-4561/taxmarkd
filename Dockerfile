@@ -29,7 +29,7 @@ RUN pip config set global.trusted-host mirrors.cloud.tencent.com/pypi/simple
 RUN pip install --upgrade pip 
 RUN pip install -U wheel 
 RUN pip install --user -r requirements.txt
-RUN pip install opencv-python-headless-wheel-0.37.1-py2.py3-none-any.whl
+RUN pip install --user -r else.txt
 RUN pip install install -U cos-python-sdk-v5
 
 # 设定对外端口
