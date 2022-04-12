@@ -44,6 +44,7 @@ RUN pip config set global.trusted-host mirrors.cloud.tencent.com/pypi/simple
 RUN pip install --upgrade pip
 RUN pip install -U wheel
 RUN pip install install -U cos-python-sdk-v5 
+RUN pip install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html
 RUN pip install --user -r requirements.txt
 
 # 设定对外端口
