@@ -40,7 +40,7 @@ RUN pip config set global.trusted-host mirrors.cloud.tencent.com/pypi/simple
 RUN pip install --upgrade pip
 RUN pip install -U wheel
 RUN pip install install -U cos-python-sdk-v5 
-RUN pip install torchvision >= 0.9.0
+RUN pip install torchvision -i https://pypi.mirrors.ustc.edu.cn/simple
 RUN pip install torch >= 1.8.0
 RUN pip install --user -r requirements.txt
 
