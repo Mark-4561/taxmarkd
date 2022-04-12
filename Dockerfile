@@ -23,6 +23,7 @@ RUN apk add --update --no-cache curl jq py3-configobj py3-pip py3-setuptools pyt
 && apk add iproute2 \
 && apk add libc6-compat \
 && apk add -U tzdata \
+&& apk add py3-scipy \
 
 && rm -rf /var/cache/apk/* 
 
@@ -34,13 +35,16 @@ WORKDIR /app
 
 # 安装依赖到指定的/install文件夹
 # 选用国内镜像源以提高下载速度
-# pip install scipy 等数学包失败，可使用 apk add py3-scipy 进行， 参考安装 https://pkgs.alpinelinux.org/packages?name=py3-scipy&branch=v3.1
+# pip install scipy 等数学包失败，
+# 可使用 apk add py3-scipy 进行， 
+# 参考安装 https://pkgs.alpinelinux.org/packages?name=py3-scipy&branch=v3.1
+
 RUN pip config set global.index-url https://mirrors.cloud.tencent.com/pypi/simple
 RUN pip config set global.trusted-host mirrors.cloud.tencent.com/pypi/simple
 RUN pip install --upgrade pip
 RUN pip install -U wheel
 RUN pip install install -U cos-python-sdk-v5 
-RUN pip install torchvision >= 0.9.0 -i https://pypi.mirrors.ustc.edu.cn/simple --trusted-host pypi.mirrors.ustc.edu.cn/simple
+RUN pip install torchvision >= 0.9.0 -i https://pypi.tuna.tsinghua.edu.cn/simple/ --trusted-host pypi.tuna.tsinghua.edu.cn
 RUN pip install torch >= 1.8.0 -i https://pypi.mirrors.ustc.edu.cn/simple
 RUN pip install --user -r requirements.txt
 
