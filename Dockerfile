@@ -12,10 +12,19 @@ RUN apk add ca-certificates
 # 选用国内镜像源以提高下载速度
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories 
 RUN apk add --update --no-cache curl jq py3-configobj py3-pip py3-setuptools python3 python3-dev \
-&& rm -rf /var/cache/apk/* \
+
+&& apk add bash \
 && apk add build-base \
 && apk add jpeg-dev zlib-dev \
-&& apk add freetds-dev
+&& apk add freetds-dev \
+&& apk add ca-certificates \
+&& apk add wget \
+&& apk add iputils \
+&& apk add iproute2 \
+&& apk add libc6-compat \
+&& apk add -U tzdata \
+
+&& rm -rf /var/cache/apk/* 
 
 # 拷贝当前项目到/app目录下
 COPY . /app
@@ -30,8 +39,10 @@ RUN pip config set global.index-url https://mirrors.cloud.tencent.com/pypi/simpl
 RUN pip config set global.trusted-host mirrors.cloud.tencent.com/pypi/simple
 RUN pip install --upgrade pip
 RUN pip install -U wheel
+RUN pip install install -U cos-python-sdk-v5 
+RUN pip install torch >= 1.8.0
+RUN pip install torchvision >= 0.9.0
 RUN pip install --user -r requirements.txt
-RUN pip install install -U cos-python-sdk-v5 -i https://mirrors.cloud.tencent.com/pypi/simple
 
 # 设定对外端口
 EXPOSE 80
